@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="./doc-tecnica.css" />
+</head>
+
+<body>
+  <nav id="navbar">
+    <header>PHP Documentación</header>
+    <ul>
+      <li><a class="nav-link" href="#Introduction">Introducción</a></li>
+      <li>
+        <a class="nav-link" href="#tutorial_sencillo">Tutorial Sencillo</a>
+      </li>
+      <li>
+        <a class="nav-link" href="#sintaxis_basica">Sintaxis Básica</a>
+      </li>
+      <li><a class="nav-link" href="#Hello_world">Hola Mundo</a></li>
+      <li><a class="nav-link" href="#Variables">Variables</a></li>
+      <li>
+        <a class="nav-link" href="#declaracion_de_variables">Declaración de variables</a>
+      </li>
+      <li><a class="nav-link" href="#estructura_de_control"> Estructura de Control</a></li>
+      <li>
+        <a class="nav-link" href="#variables_globales">Variables Globales </a>
+      </li>
+      <li><a class="nav-link" href="#Constantes">Constantes</a></li>
+      <li><a class="nav-link" href="#Tipos_de_Datos">Tipos de Datos</a></li>
+      <li>
+        <a class="nav-link" href="#if...else_sentencia">Operadores</a>
+      </li>
+      <li><a class="nav-link" href="#while">Clases y Objetos</a></li>
+      <li>
+        <a class="nav-link" href="#declaracion_de_funciones">Declaracion de Funciones </a>
+      </li>
+      <li><a class="nav-link" href="#referencias">Referencias</a></li>
+    </ul>
+  </nav>
+  <main id="main-doc">
+    <section class="main-section" id="Introduction">
+      <header>Introdducción</header>
+      <article>
+        <p>
+          PHP (acrónimo recursivo de PHP: Hypertext Preprocessor) es un lenguaje de código abierto muy popular
+          especialmente adecuado para el desarrollo web y que puede ser incrustado en HTML. Bien, pero ¿qué significa
+          realmente? Un ejemplo nos aclarará las cosas:
+        </p>
+        <article>
+          <b>Ejemplo #1 Un ejemplo introductorio</b>
+          <code>
+              <head>
+                 title> Ejemplo /title>
+              /head>
+         body> 
+                   ?php
+                          echo "¡Hola, soy un script de PHP!";
+                      ?>
+
+          </code>
+        </article>
+        <p>
+          En lugar de usar muchos comandos para mostrar HTML (como en C o en Perl), las páginas de PHP contienen HTML
+          con código
+          incrustado que hace "algo" (en este caso, mostrar "¡Hola, soy un script de PHP!). El código de PHP está
+          encerrado entre
+          las etiquetas especiales de comienzo y final
+          ?php y ?> que permiten entrar y salir del "modo PHP".
+        </p>
+        <ul>
+          <li>
+            Lo que distingue a PHP de algo del lado del cliente como Javascript es que el código es ejecutado en el
+            servidor,
+            generando HTML y enviándolo al cliente. El cliente recibirá el resultado de ejecutar el script, aunque no se
+            sabrá el
+            código subyacente que era. El servidor web puede ser configurado incluso para que procese todos los ficheros
+            HTML con
+            PHP, por lo que no hay manera de que los usuarios puedan saber qué se tiene debajo de la manga.
+          </li>
+          <li>
+            Lo mejor de utilizar PHP es su extrema simplicidad para el principiante, pero a su vez ofrece muchas
+            características
+            avanzadas para los programadores profesionales. No sienta miedo de leer la larga lista de características de
+            PHP. En
+            unas pocas horas podrá empezar a escribir sus primeros scripts.
+
+            Aunque el desarrollo de PHP está centrado en la programación de scripts del lado del servidor, se puede
+            utilizar para
+            muchas otras cosas. Siga leyendo y descubra más en la sección ¿Qué puede hacer PHP?, o vaya directo al
+            tutorial
+            introductorio si solamente está interesado en programación web.
+          </li>
+        </ul>
+      </article>
+    </section>
+    <section class="main-section" id="tutorial_sencillo">
+      <header>Tutorial Sencillo</header>
+      <article>
+        <p><b>¿Qué necesito?</b></p>
+
+        <ul>
+          <li>
+            En este manual se asume que se cuenta con un servidor que tiene soporte activado para PHP y que todos los
+            ficheros con
+            la extensión .php son tratados por PHP. En la mayoría de servidores, esta es la extensión predeterminada
+            para los
+            ficheros de PHP, aunque puede preguntar al administrador de su servidor para estar seguro. Si el servidor
+            tiene soporte
+            para PHP, entonces no es necesario hacer nada. Simplemente cree sus ficheros .php, guárdelos en su
+            directorio web y el
+            servidor los analizará por usted. No hay necesidad de compilar nada o instalar otras herramientas. Piense en
+            estos
+            ficheros habilitados para PHP como simples ficheros HTML con el añadido de una nueva familia de etiquetas
+            mágicas que
+            permiten todo tipo de cosas.
+          </li>
+          <li>Digamos que quiere ahorrar el preciado ancho de banda y trabajar localmente. En este caso, querrá instalar
+            un servidor
+            web, como » Apache, y por supuesto » PHP. Lo más seguro es que también quiera instalar una base de datos
+            como » MySQL.
+
+            Puede instalarlos de forma independiente o bien puede elegir una manera más sencilla. Este manual contiene
+            Instrucciones
+            de instalación de PHP (asumiendo que tiene algún tipo de servidor web ya configurado). Si tuviera problemas
+            con la
+            instalación, sugerimos que formule sus preguntas en nuestra » lista de correo de instalación. Si elige la
+            manera más
+            sencilla, » localice un paquete preconfigurado para su sistema operativo, el cual instala automáticamente
+            todo esto con
+            únicamente unos pocos clics de ratón. Es sencillo configurar un servidor web con soporte para PHP en
+            cualquier sistema
+            operativo, incluyendo MacOSX, Linux y Windows. En Linux, podría encontrar útil » rpmfind y » PBone para
+            localizar los
+            RPM. También puede visitar » apt-get para buscar paquetes para Debian..</li>
+        </ul>
+        <b>Su primera página con PHP</b>
+        <ul>
+          <li>
+            Comience por crear un fichero llamado hola.php y póngalo en el directorio raíz de su servidor web
+            (DOCUMENT_ROOT) con el
+            siguiente contenido:
+          </li>
+      </article>
+      <article>
+        <b> Ejemplo #1 Nuestro primer script de PHP: hola.php </b>
+        <code>
+            html>
+            
+            head>
+              title>Prueba de PHP</title>
+            /head>
+            
+            body>
+              ?php echo '<p>Hola Mundo</p>'; ?>
+            /body>
+            
+            /html>
+        </code>
+      </article>
+      <article>
+        <p>
+          Utilice su navegador web para acceder al fichero con el URL de su servidor, finalizado con la referencia al
+          fichero
+          /hola.php. Si está programando localmente, este URL será algo parecido a http://localhost/hola.php o
+          http://127.0.0.1/hola.php, pero esto depende de la configuración de su servidor web. Si todo está configurado
+          correctamente, el fichero será analizado por PHP y se enviará el siguiente contenido a su navegador:
+        </p>
+        <article>
+          <article>
+            <code>
+          html>
+          
+          head>
+            title>Prueba de PHP</title>
+          /head>
+          
+          body>
+            p>Hola mundo</p>
+          /body>
+          
+          /html>
+        </code>
+          </article>
+          <article>
+            <p>
+              Este programa es extremadamente simple y realmente no es necesario utilizar PHP para crear una página como
+              esta. Lo único
+              que muestra es: Hola mundo empleando la sentencia echo de PHP. Observe que el fichero no necesita ser
+              ejecutable o
+              especial de ninguna forma. El servidor reconoce que este fichero necesita ser interpretado por PHP debido
+              al empleo de
+              la extensión ".php", ya que el servidor está configurado para enviarlo a PHP. Piense como si fuera un
+              fichero HTML
+              normal que tiene una serie de etiquetas especiales disponibles con las que puede hacer muchas cosas
+              interesantes.
+              <br><br>
+              Si intentó usar este ejemplo y no produjo ningún resultado, se le preguntó si deseaba descargar el
+              fichero, o se mostró
+              todo el fichero como texto, lo más seguro es que PHP no se encuentre habilitado en su servidor o no esté
+              configurado
+              adecuadamente. Pídale a su administrador que lo habilite utilizando el capítulo Instalación del manual. Si
+              está
+              trabajando localmente, lea también el capítulo dedicado a la instalación para asegurarse de que todo esté
+              configurado
+              adecuadamente. Asegúrese de que está accediendo al fichero mediante http y que el servidor muestre el
+              resultado. Si está
+              abriendo el fichero desde el sistema de ficheros, probablemente no será analizado por PHP. Si el problema
+              persiste, no
+              dude en usar alguna de las múltiples opciones del » Soporte para PHP.
+              <br><br>
+              El objetivo de este ejemplo es el formato de las etiquetas especiales de PHP. En este ejemplo utilizamos
+              ?php para indicar el inicio de una etiqueta de PHP. Después ponemos la sentencia y abandonamos el modo PHP
+              añadiendo la etiqueta de cierre ?>.
+              De esta manera, se puede entrar y salir del modo PHP en un fichero HTML cada vez que se quiera. Para más
+              información,
+              lea la sección del manual titulada Sintaxis básica de PHP.
+              <br><br>
+              Ahora que ha creado un pequeño script de PHP que funciona correctamente, es hora de crear el script de PHP
+              más famoso:
+              hacer una llamada a la función phpinfo() para obtener mucha información útil acerca de su sistema y
+              configuración, como
+              las variables predefinidas disponibles, los módulos de PHP cargados, y los ajustes de configuración.
+              Tómese algo de
+              tiempo para revisar esta importante información.
+            </p>
+            <article>
+              <article>
+                <code>
+      ?php phpinfo(); ?>
+        </code>
+              </article>
+    </section>
+    <section class="main-section" id="sintaxis_basica">
+      <header>Sintaxis Básica</header>
+      <b>Etiquetas de PHP</b>
+      <article>
+        <p>
+          Cuando PHP analiza un fichero, busca las etiquetas de apertura y cierre, que son
+          ?php y ?>, y que indican a PHP dónde empezar y finalizar la interpretación del código. Este mecanismo
+          permite
+          embeber a
+          PHP en todo tipo de documentos, ya que todo lo que esté fuera de las etiquetas de apertura y cierre de PHP
+          será ignorado
+          por el analizador.
+
+          PHP también permite la etiqueta de apertura abreviada
+          ? (la cual está desaconsejada debido a que sólo está disponible si se habilita con la directiva
+          short_open_tag
+          del fichero de configuración php.ini, o si PHP se configuró con la opción --enable-short-tags).
+
+          Si un fichero contiene solamente código de PHP, es preferible omitir la etiqueta de cierre de PHP al final
+          del
+          mismo. Así se previene la adición de espacios en blanco o nuevas líneas accidentales después de la etiqueta
+          de
+          cierre, lo cual causaría efectos no deseados debido a que PHP comenzará la salida del búfer cuando no había
+          intención por parte del programador de enviar ninguna salida en ese punto del script.
+        </p>
+        <article>
+          Si un fichero contiene solamente código de PHP, es preferible omitir la etiqueta de cierre de PHP al final del
+          mismo.
+          Así se previene la adición de espacios en blanco o nuevas líneas accidentales después de la etiqueta de
+          cierre, lo cual
+          causaría efectos no deseados debido a que PHP comenzará la salida del búfer cuando no había intención por
+          parte del
+          programador de enviar ninguna salida en ese punto del script.
+          <code>
+?php
+echo "Hola mundo";
+
+// ... más código
+
+echo "Última sentencia";
+
+// el script finaliza aquí sin etiqueta de cierre de PHP
+
+                  </code>
+          <b>Salir de HTML</b>
+          <article>
+            <p>
+              Cualquier cosa fuera de un par de etiquetas de apertura y cierre es ignorado por el intérprete de PHP, lo
+              que permite
+              que los ficheros de PHP tengan contenido mixto. Esto hace que PHP pueda ser embebido en documentos HTML
+              para, por
+              ejemplo, crear plantillas.
+            </p>
+            <code>
+p>Esto va a ser ignorado por PHP y mostrado por el navegador./p>
+?php echo 'Mientras que esto va a ser interpretado.'; ?>
+p>Esto también será ignorado por PHP y mostrado por el navegador./p>
+                  </code>
+            <p>
+              Este ejemplo funciona como estaba previsto, porque cuando PHP intercepta las etiquetas de cierre ?>,
+              simplemente
+              comienza a imprimir cualquier cosa que encuentre (a excepción de una nueva línea inmediatamente después;
+              véase la
+              separación de instrucciones) hasta que dé con otra etiqueta de apertura a menos que se encuentre en mitad
+              de una
+              sentencia condicional, en cuyo caso el intérprete determinará el resultado de la condición antes de tomar
+              una decisión
+              de qué es lo que tiene que saltar. Vea el siguiente ejemplo.
+              Empleo de estructuras con condiciones
+            </p>
+            <p>
+              <b> Ejemplo #1 Salida avanzada usando condiciones</b>
+            </p>
+            <code>
+              ?php if ($expresión == true): ?>
+              Esto se mostrará si la expresión es verdadera.
+              ?php else: ?>
+              En caso contrario se mostrará esto.
+              ?php endif; ?>
+            </code>
+            <p>En este ejemplo, PHP saltará los bloques donde la condición no se cumpla, incluso si están fuera de las
+              etiquetas de
+              apertura/cierre de PHP, los saltará según la condición debido a que el intérprete salta los bloques
+              contenidos dentro de
+              una condición que no se cumpla.
+              Para imprimir bloques de texto grandes, es más eficiente abandonar el modo intérprete de PHP que enviar
+              todo el texto a
+              través de echo o print.
+
+              En PHP 5 existen hasta cinco pares de etiquetas de apertura y cierre diferentes, dependiendo de la
+              configuración de PHP.
+              Dos de estas,
+              ?php ?> y
+              script language="php"> /script>, siempre están disponibles. También existe una etiqueta echo abreviada,
+              ?= ?>, que siempre está disponible en PHP 5.4.0 y posteriores.
+
+              Las otras dos son las etiquetas abreviadas y las etiquetas al estilo de ASP. De por sí, aunque algunos
+              encuentran
+              prácticas, las etiquetas abreviadas y las etiquetas al estilo ASP son menos portables, no recomendándose
+              por lo general.</p>
+          </article>
+          <b>Separación de instrucciones</b>
+          <article>
+            <p>
+              Como en C o en Perl, PHP requiere que las instrucciones terminen en punto y coma al final de cada
+              sentencia. La etiqueta
+              de cierre de un bloque de código de PHP automáticamente implica un punto y coma; no es necesario usar un
+              punto y coma
+              para cerrar la última línea de un bloque de PHP. La etiqueta de cierre del bloque incluirá la nueva línea
+              final
+              inmediata si está presente.
+            </p>
+            <code>
+          ?php
+              echo 'Esto es una prueba';
+          ?>
+          
+          ?php echo 'Esto es una prueba' ?>
+          
+          ?php echo 'Hemos omitido la última etiqueta de cierre';
+                            </code>
+          </article>
+    </section>
+    <b>Comentarios</b>
+    <article>
+      <p>
+        PHP admite comentarios al estilo de 'C', 'C++' y de consola de Unix (estilo de Perl).
+        <br><b>Por ejemplo: </b>
+      </p>
+      <code>
+          ?php
+              echo 'Esto es una prueba'; // Esto es un comentario al estilo de c++ de una sola línea
+              /* Esto es un comentario multilínea
+                 y otra lína de comentarios */
+              echo 'Esto es otra prueba';
+              echo 'Una prueba final'; # Esto es un comentario al estilo de consola de una sola línea
+          ?>
+                            </code>
+      <p>
+        Los comentarios al estilo de "una sola línea" solo comentan hasta el final de la línea o del bloque actual de
+        código de
+        PHP, lo primero que suceda. Esto implica que el código HTML después de // ... ?> o # ... ?> SERÁ impreso: ?>
+        sale del
+        modo PHP y vuelve al modo HTML, por lo que // o # no pueden influir en eso. Si la directiva de configuración
+        asp_tags
+        está activada, actúa igual que // %> y # %>. Sin embargo, la etiqueta </script> no sale del modo PHP en un
+        comentario de
+        una sola línea.
+      </p>
+      <code>h1>Esto es un
+  php # echo 'simple';?> ejemplo
+/h1>
+p>El encabezado anterior dirá 'Esto es un ejemplo'./p>
+      </code>
+      <p>Los comentarios al estilo de 'C' finalizan con el primer */ que se encuentre. Asegúrese de no anidar
+        comentarios al
+        estilo de 'C'. Es muy fácil cometer este error cuando se intenta comentar un bloque grande de código.</p>
+      <code>?php
+         /*
+            echo 'Esto es una prueba'; /* Este comentario causará un problema*/
+         */
+        ?></code>
+    </article>
+    </section>
+    <section class="main-section" id="Hello_world">
+      <header>Hola Mundo</header>
+      <article>
+        Hola amigos. voy a recordar los primeros pasos de lenguajes de programación para que cualquier
+        visitante pueda seguirme desde cero. Por lo que la explicación va a ser lo más educativa posible.
+
+        Para realizar el clásico «Hola mundo» en PHP, el primer paso será abrir las etiquetas para interpretar el
+        código, según
+        el lenguaje, en el caso de PHP se realiza con los simbolos
+        <code>?php
+          echo 'Hola mundo'; // Hola mundo
+          echo "Hola mundo"; // Hola mundo
+        ?>
+          </code>
+
+        Para comprobarlo puedes copiar este código y guardarlo en un archivo llamado:
+        <code>holamundo.php</code>
+      </article>
+    </section>
+    <section class="main-section" id="Variables">
+      <header>Variables</header>
+      <b>Conceptos Básicos</b>
+      <p>
+        En PHP las variables se representan con un signo de dólar seguido por el nombre de la variable. El nombre de la
+        variable
+        es sensible a minúsculas y mayúsculas.
+
+        Los nombres de variables siguen las mismas reglas que otras etiquetas en PHP. Un nombre de variable válido tiene
+        que
+        empezar con una letra o un carácter de subrayado (underscore), seguido de cualquier número de letras, números y
+        caracteres de subrayado. Como expresión regular se podría expresar como:
+        '[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*'
+      </p>
+      <code>
+        ?php
+        $var = 'Roberto';
+        $Var = 'Juan';
+        echo "$var, $Var";      // imprime "Roberto, Juan"
+        
+        $4site = 'aun no';      // inválido; comienza con un número
+        $_4site = 'aun no';     // válido; comienza con un carácter de subrayado
+        $täyte = 'mansikka';    // válido; 'ä' es ASCII (Extendido) 228
+        ?>
+      </code>
+      <p>
+        De forma predeterminada, las variables siempre se asignan por valor. Esto significa que cuando se asigna una
+        expresión a
+        una variable, el valor completo de la expresión original se copia en la variable de destino. Esto quiere decir
+        que, por
+        ejemplo, después de asignar el valor de una variable a otra, los cambios que se efectúen a una de esas variables
+        no
+        afectará a la otra. Para más información sobre este tipo de asignación, vea Expresiones.
+        <br><br>
+        PHP también ofrece otra forma de asignar valores a las variables: asignar por referencia. Esto significa que la
+        nueva
+        variable simplemente referencia (en otras palabras, "se convierte en un alias de" ó "apunta a") la variable
+        original.
+        Los cambios a la nueva variable afectan a la original, y viceversa.
+        <br><br>
+        Para asignar por referencia, simplemente se antepone un signo ampersand (&) al comienzo de la variable cuyo
+        valor se
+        está asignando (la variable fuente). Por ejemplo, el siguiente segmento de código produce la salida 'Mi nombre
+        es Bob'
+        dos veces:
+      </p>
+      <code>
+  ?php
+  $foo = 'Bob';                // Asigna el valor 'Bob' a $foo
+  $bar = &$foo;                // Referenciar $foo vía $bar.
+  $bar = "Mi nombre es $bar";  // Modifica $bar...
+  echo $bar;
+  echo $foo;                   // $foo también se modifica.
+  ?>
+</code>
+      <p>Algo importante a tener en cuenta es que sólo las variables con nombre pueden ser asignadas por referencia.</p>
+      <code>?php
+$foo = 25;
+$bar = &$foo;      // Esta es una asignación válida.
+$bar = &(24 * 7);  // Inválida; referencia una expresión sin nombre.
+
+function test()
+{
+   return 25;
+}
+
+$bar = &test();    // Inválido.
+?></code>
+      <p>No es necesario inicializar variables en PHP, sin embargo, es una muy buena práctica. Las variables no
+        inicializadas
+        tienen un valor predeterminado de acuerdo a su tipo dependiendo del contexto en el que son usadas - las
+        booleanas se
+        asumen como false, los enteros y flotantes como cero, las cadenas (p.ej. usadas en echo) se establecen como una
+        cadena
+        vacía y los arrays se convierten en un array vacío.</p>
+      <article>
+        <b>Ejemplo #1 Valores predeterminados en variables sin inicializar</b>
+        <code>
+        ?php
+        // Una variable no definida Y no referenciada (sin contexto de uso); imprime NULL
+        var_dump($variable_indefinida);
+        
+        // Uso booleano; imprime 'false' (Vea operadores ternarios para más información sobre esta sintaxis)
+        echo($booleano_indefinido ? "true\n" : "false\n");
+        
+        // Uso de una cadena; imprime 'string(3) "abc"'
+        $cadena_indefinida .= 'abc';
+        var_dump($cadena_indefinida);
+        
+        // Uso de un entero; imprime 'int(25)'
+        $int_indefinido += 25; // 0 + 25 => 25
+        var_dump($int_indefinido);
+        
+        // Uso de flotante/doble; imprime 'float(1.25)'
+        $flotante_indefinido += 1.25;
+        var_dump($flotante_indefinido);
+        
+        // Uso de array; imprime array(1) { [3]=> string(3) "def" }
+        $array_indefinida[3] = "def"; // array() + array(3 => "def") => array(3 => "def")
+        var_dump($array_indefinida);
+        
+        // Uso de objetos; crea un nuevo objeto stdClass (vea http://www.php.net/manual/en/reserved.classes.php)
+        // Imprime: object(stdClass)#1 (1) { ["foo"]=> string(3) "bar" }
+        $objeto_indefinido->foo = 'bar';
+        var_dump($objeto_indefinido);
+        ?>
+        </code>
+      </article>
+      <p>
+        Depender del valor predeterminado de una variable sin inicializar es problemático al incluir un archivo en otro
+        que use
+        el mismo nombre de variable. Un error de nivel E_NOTICE es emitido cuendo se trabaja con variables sin
+        inicializar, con
+        la excepción del caso en el que se anexan elementos a un array no inicializado. La construcción del lenguaje
+        isset()
+        puede ser usada para detectar si una variable ya ha sido inicializada.
+      </p>
+      <article>
+        <b>Variables Predefinidas</b>
+        <p>PHP proporciona una gran cantidad de variables predefinidas a cualquier script que se ejecute. Muchas de
+          éstas, sin
+          embargo, no pueden ser completamente documentadas ya que dependen del servidor que esté corriendo, la versión
+          y
+          configuración de dicho servidor, y otros factores. Algunas de estas variables no estarán disponibles cuando se
+          ejecute
+          PHP desde la línea de comandos. Para obtener una lista de estas variables, por favor vea la sección sobre
+          Variables
+          Predefinidas Reservadas.
+          <br><br>
+          PHP ofrece un conjunto adicional de arrays predefinidas que contienen variables del servidor web, el entorno y
+          entradas
+          del usuario. Estos nuevos arrays son un poco especiales porque son automáticamente globales. Por esta razón,
+          son
+          conocidas a menudo como "superglobales". Las superglobales se mencionan más abajo; sin embargo para una lista
+          de sus
+          contenidos y más información sobre variables predefinidas en PHP, por favor consulte la sección Variables
+          predefinidas
+          reservadas. Asimismo, podrá notar cómo las antiguas variables predefinidas ($HTTP_*_VARS) todavía existen.
+        </p>
+        <p>Si ciertas variables no son definidas en variables_order, los arrays de PHP predefinidos asociados a estas,
+          estarán
+          vacíos.</p>
+      </article>
+    </section>
+
+
+
+
+
+
+    <section class="main-section" id="declaracion_de_variables">
+      <header>Declaracion de variables</header>
+      <article>
+        Reglas para el nombramiento
+        <p>
+          Case-Sensitivity: Todos los nombres de variables son sensibles a mayúsculas y minúsculas, lo cual indica que
+          la variable
+          $num es distinta a la variable $Num
+        </p>
+        <p>
+          Label-Rule: Las variables deben comenzar con una letra o un guión al piso ( _ ), seguido de una combinación de
+          letras,
+          números o guiones al piso. Cuando se habla de letras en este caso se tienen en cuenta no solo a-z y A-Z sino
+          también los
+          bytes desde 128 hasta 255 (0x80-0xff).
+        </p>
+        <b>Declaración e inicialización</b>
+        <p>
+          En PHP las variables siempre son declaradas e inicializadas en una sola sentencia. Tampoco es necesario
+          indicar el tipo
+          de dato que va a contener la variable. Veamos cómo declarar e inicializar distintos tipos de variables.
+        </p>
+        <code>
+// esta variable será de tipo string
+$name = 'Bob';
+
+// esta variable será de tipo integer
+$age = 78;
+
+// esta variable será de tipo double
+$height = 168.7;
+
+        </code>
+        <p>Ahora mira estás declaraciones de variables, algunas son correctas y otras incorrectas. En casa caso, se
+          explica el
+          porqué con un comentario de PHP antes de la declaración.</p>
+        <code>// inválida, comienza con un número
+          $4site = 'not yet';
+          
+          // válida; comienza con guión al piso
+          $_4site = 'not yet';
+          
+          // válida; 'ä' es un caracter ASCII extendido (ASCII 228)
+          $täyte = 'mansikka';</code>
+        <p>Hasta aquí nuestro post de declaración e inicialización. Existen muchas otras particularidades con respecto a
+          la
+          asignación de variables que iremos viendo a medida que avance nuestra serie de PHP. </p>
+      </article>
+    </section>
+    <section class="main-section" id="estructura_de_control">
+      <header>Estructura de Control</header>
+      <article>
+        <p>
+          Todo script PHP está construido según una serie de sentencias. Una sentencia puede ser una asignación, una
+          llamada de
+          función, un ciclo, una sentencia condicional o incluso una sentencia que no hace nada (una sentencia vacía).
+          Las
+          sentencias generalmente finalizan con un punto y coma. Adicionalmente, las sentencias pueden agruparse en un
+          conjunto de
+          sentencias, encapsulándolas entre corchetes. Un grupo de sentencias es una sentencia por sí misma también. Los
+          diferentes tipos de sentencias son descritos en este capítulo.
+        </p>
+
+        <p>
+          PHP ofrece una sintaxis alternativa para algunas de sus estructuras de control, a saber: if, while, for,
+          foreach, y
+          switch. En cada caso, la forma básica de la sintaxis alternativa es cambiar la llave de apertura por dos
+          puntos (:) y la
+          llave de cierre por endif;, endwhile;, endfor;, endforeach;, o endswitch;, respectivamente.
+        </p>
+        <code>?php if ($a == 5): ?>
+        A es igual a 5
+        ?php endif; ?></code>
+        <p>
+          En el ejemplo anterior, el bloque HTML "A es igual a 5" está anidado dentro de una sentencia if escrita en la
+          sintaxis
+          alternativa. El bloque HTML se mostraría solamente si $a es igual a 5.
+          <br><br>
+          La sintaxis alternativa también se aplica a else y elseif. La siguiente es una estructura if con elseif y else
+          en el
+          formato alternativo:
+        </p>
+
+        <code>?php
+        if ($a == 5):
+            echo "a igual 5";
+            echo "...";
+        elseif ($a == 6):
+            echo "a igual 6";
+            echo "!!!";
+        else:
+            echo "a no es 5 ni 6";
+        endif;
+        ?></code>
+      </article>
+    </section>
+    <section class="main-section" id="variables_globales">
+      <header>Variables Globales</header>
+      <article>
+        <p>
+          $GLOBALS — Hace referencia a todas las variables disponibles en el ámbito global
+        </p>
+
+        <p>
+          Es un array asociativo que contiene las referencias a todas la variables que están definidas en el ámbito
+          global del
+          script. Los nombres de las variables son las claves del array.
+        </p>
+        <b>EJEMPLOS</b>
+        <code>?php
+        function test() {
+            $foo = "variable local";
+        
+            echo '$foo en el ámbito global: ' . $GLOBALS["foo"] . "\n";
+            echo '$foo en el ámbito simple: ' . $foo . "\n";
+        }
+        
+        $foo = "Contenido de ejemplo";
+        test();
+        ?></code>
+        <p>El resultado del ejemplo sería algo similar a : </p>
+        <code>$foo en el ámbito global: Contenido de ejemplo
+        $foo en el ámbito simple: variable local</code>
+      </article>
+    </section>
+    <section class="main-section" id="Constantes">
+      <header>Constantes</header>
+      <article>
+        <p>
+          constant — Devuelve el valor de una constante
+        </p>
+        <b>Descripción</b>
+        <code>constant(string $name): mixed</code>
+        <p>
+          Devuelve el valor de una constante indicada por name.
+          <br><br>
+          constant() es útil si se necesita recuperar el valor de una constante, pero no se conoce su nombre. Esto es,
+          está
+          almacenada en una variable o es devuelta por una función.
+          <br><br>
+          Esta función también funciona con las constantes de clases.
+        </p>
+
+        <code>?php
+        
+        define("MAXSIZE", 100);
+        
+        echo MAXSIZE;
+        echo constant("MAXSIZE"); // lo mismo que la línea anterior
+        
+        
+        interface bar {
+            const test = 'foobar!';
+        }
+        
+        class foo {
+            const test = 'foobar!';
+        }
+        
+        $const = 'test';
+        
+        var_dump(constant('bar::'. $const)); // string(7) "foobar!"
+        var_dump(constant('foo::'. $const)); // string(7) "foobar!"
+        
+        ?></code>
+      </article>
+    </section>
+    <section class="main-section" id="Tipos_de_Datos">
+      <header>Tipos de Datos</header>
+      <article>
+        <p>Un tipo especifica la cantidad de memoria asignada a un valor asociado a él. Un tipo también determina las
+          operaciones
+          que puede realizar en él.
+          <br><br>
+          PHP tiene diez tipos primitivos que incluyen cuatro tipos scala, cuatro tipos compuestos y dos tipos
+          especiales:
+        </p>
+        <ul>
+          <li>
+            <p>Tipos escalares:</p>
+            <ul>
+              <li>Tipos de compuestos</li>
+              <li>
+                Tipos Especiales
+              </li>
+              <li>
+                Tipos escalares
+              </li>
+            </ul>
+        </ul>
+        <b>Entero</b>
+        <br><br>
+        Los enteros son números enteros definidos en el conjunto {…-3,-2-,-1,0,1,2,3…}. El tamaño del entero depende de
+        la
+        platabr
+        forma en la que se esté ejecutando PHP.
+        <br><br>
+        El constante PHP_INT_SIZE especifica el tamaño del entero en una plataforma específica. PHP usa la palabra clave
+        int
+        para indicar el tipo entero.
+        <code>?php
+        
+        $count = 0;
+        $max = 1000;
+        $page_size = 10;
+        
+        Code language: HTML, XML (xml)</code>
+        <b>Float</b>
+        <br><br>
+        Los puntos flotantes son números de coma flotante, también llamados flotantes, dobles o números reales.
+        <br><br>
+        PHP usa el formato doble IEEE 754 para representar flotantes. Al igual que otros lenguajes de programación, los
+        flotantes tienen una precisión limitada.
+        <br><br>
+        PHP usa el float palabra clave para representar números de coma flotante. El siguiente ejemplo demuestra números
+        de
+        punto flotante en PHP:
+        <code>?php
+        
+        $price = 10.25;
+        $tax = 0.08;
+        
+        Code language: HTML, XML (xml)</code>
+        <b>Booleano</b>
+        <br><br>
+        Boolean representa un valor de verdad que puede ser true Donde false. PHP usa el bool palabra clave para
+        representar el
+        tipo booleano.
+        <br><br>
+        El tipo bool tiene dos valores true y false. Dado que las palabras clave no distinguen entre mayúsculas y
+        minúsculas,
+        puede utilizar true, True, TRUE, false, Falsey False para especificar valores booleanos.
+        <br><br>
+        El siguiente ejemplo muestra cómo asignar valores booleanos a las variables:
+        <code>?php
+        
+        $is_admin = true;
+        $is_user_logged_in = false;
+        
+        Code language: HTML, XML (xml)</code>
+        <p>Cuando usa los valores de otros tipos en el contexto booleano, como declaraciones if-else y switch-case, PHP
+          los
+          convierte en valores booleanos.</p>
+        <ul>
+          <li>
+            el false palabra clave.
+          </li>
+          <li>El entero 0 y -0 (cero).</li>
+        </ul>
+        <ul>
+          <li>Flotadores 0.0 y -0.0 (cero).</li>
+        </ul>
+        <ul>
+          <li>La cadena vacía ("", '') y la cadena «0».</li>
+        </ul>
+        <ul>
+          <li>La matriz vacía (array() Donde []).</li>
+        </ul>
+        <ul>
+          <li>el SimpleXML objetos creados a partir de elementos vacíos sin atributos.</li>
+        </ul>
+      </article>
+    </section>
+    <section class="main-section" id="if...else_sentencia">
+      <header>if...else Sentencias</header>
+      <article>
+        El constructor if es una de las características más importantes de muchos lenguajes, incluido PHP. Permite la
+        ejecución
+        condicional de fragmentos de código. PHP dispone de una estructura if que es similar a la de C:
+
+        <code>if (expr) </code>
+        sentencia
+        <p>
+          Como se describe en la sección sobre expresiones , la expresión es evaluada a su valor booleano. Si la
+          expresión se
+          evalúa como true, PHP ejecutará la sentencia y si se evalúa como false la ignorará. Más información sobre qué
+          valores
+          evalúan como false se puede encontrar en la sección 'Convirtiendo a booleano'.
+        </p>
+        <code>s?php
+        if ($a > $b) {
+          echo "a es mayor que b";
+        }
+        ?>
+          </code>
+        A menudo se desea tener más de una sentencia para ser ejecutada condicionalmente. Por supuesto, no hay necesidad
+        de
+        envolver cada sentencia con una cláusula if. En cambio, se pueden agrupar varias sentencias en un grupo de
+        sentencias.
+        Por ejemplo, este código mostraría a es mayor que b si $a es mayor que $b y entonces asignaría el valor de $a a
+        $b:
+
+        <code>?php
+        if ($a > $b) {
+          echo "a es mayor que b";
+          $b = $a;
+        }
+        ?> </code>
+        <p> Las sentencias if pueden anidarse dentro de otra sentencias if infinitamente, lo cual provee completa
+          flexibilidad para
+          la ejecución condicional de diferentes partes del programa.</p>
+      </article>
+    </section>
+    <section class="main-section" id="while">
+      <header>while </header>
+      <article>
+        Los bucles while son el tipo más sencillo de bucle en PHP. Se comportan igual que su contrapartida en C. La
+        forma básica
+        de una sentencia while es:
+        <code>while (expr)
+        sentencia</code> El significado de una sentencia while es simple. Le dice a PHP que ejecute las sentencias
+        anidadas, tanto como la expresión while se evalúe como true. El valor de la expresión es verificado cada vez al
+        inicio del bucle, por lo que incluso si este valor cambia durante la ejecución de las sentencias anidadas, la
+        ejecución no se detendrá hasta el final de la iteración (cada vez que PHP ejecuta las sentencias contenidas en
+        el bucle es una iteración). A veces, si la expresión while se evalúa como false desde el principio, las
+        sentencias anidadas no se ejecutarán ni siquiera una vez.
+        <p>
+          Al igual que con la sentencia if, se pueden agrupar varias instrucciones dentro del mismo bucle while rodeando
+          un grupo
+          de sentencias con corchetes, o utilizando la sintaxis alternativa:
+        </p>
+        <code>while (expr):
+        sentencias
+        ...
+        endwhile;</code>
+        <p>
+          To execute multiple statements, use a block statement ({ ... }) to
+          group those statements.
+        </p>
+
+        Example:
+
+        <p>
+          Los siguientes ejemplos son idénticos y ambos presentan los números del 1 al 10:
+        </p>
+
+        <code>?php
+        /* ejemplo 1 */
+        
+        $i = 1;
+        while ($i = 10) {
+            echo $i++;  /* el valor presentado sería
+                           $i antes del incremento
+                           (post-incremento) */
+        }
+        
+        /* ejemplo 2 */
+        
+        $i = 1;
+        while ($i menorque= 10):
+            echo $i;
+            $i++;
+        endwhile;
+        ?></code>
+      </article>
+    </section>
+    <section class="main-section" id="declaracion_de_funciones">
+      <header>Declaración de Funciones</header>
+      <article>
+        Una función puede ser definida empleando una sintaxis como la siguiente:
+        <br><br>
+        <b>Ejemplo #1 Seudocódigo para demostrar el uso de funciones</b>
+        <br><br>
+        <code>?php
+        function foo($arg_1, $arg_2, /* ..., */ $arg_n)
+        {
+            echo "Función de ejemplo.\n";
+            return $valor_devuelto;
+        }
+        ?></code>
+        <p>
+          Cualquier código PHP válido puede aparecer dentro de una función, incluso otras funciones y definiciones de
+          clases.
+
+          Los nombres de las funciones siguen las mismas reglas que las demás etiquetas de PHP. Un nombre de función
+          válido
+          comienza con una letra o guión bajo, seguido de cualquier número de letras, números o guiones bajos. Como
+          expresión
+          regular se expresaría así: ^[a-zA-Z_\x80-\xff][a-zA-Z0-9_\x80-\xff]*$.
+        </p>
+        <p>No es necesario definir una función antes de que sea referenciada, excepto cuando esta esté condicionalmente
+          definida
+          como se muestra en los dos ejemplos de abajo.
+
+          Cuando una función está definida de una forma condicional como en los dos ejemplos siguientes, sus
+          definiciones deben
+          ser procesadas antes de ser llamadas.</p>
+        <br><b>Ejemplo #2 Funciones condicionales</b><br><br>
+        <code>  ?php
+        
+        $hacer_algo = true;
+        
+        /* No podemos llamar a foo() desde aquí
+           ya que no existe aún,
+           pero podemos llamar a bar() */
+        
+        bar();
+        
+        if ($hacer_algo) {
+          function foo()
+          {
+            echo "No existo hasta que la ejecución del programa llegue hasta mí.\n";
+          }
+        }
+        
+        /* Ahora podemos llamar de forma segura a foo()
+           ya que $hacer_algo se evaluó como verdadero */
+        
+        if ($hacer_algo) foo();
+        
+        function bar()
+        {
+          echo "Existo desde el momento inmediato que comenzó el programa.\n";
+        }
+        
+        ?>
+        Ejemplo #3 Funciones dentro de funciones
+        
+        <?php
+        function foo()
+        {
+          function bar()
+          {
+            echo "No existo hasta que se llame a foo().\n";
+          }
+        }
+        
+        /* No podemos llamar aún a bar()
+           ya que no existe. */
+        
+        foo();
+        
+        /* Ahora podemos llamar a bar(),
+           el procesamiento de foo()
+           la ha hecho accesible. */
+        
+        bar();
+        
+        ?></code>
+        <p>
+          Todas las funciones y clases de PHP tienen ámbito global. Se pueden llamar desde fuera de una función incluso
+          si fueron
+          definidas dentro, y viceversa.
+          <br><br>
+          PHP no admite la sobrecarga de funciones, ni es posible 'desdefinir' ni redefinir funciones previamente
+          declaradas.
+        </p>
+        <p>Las funciones admiten un número variable de argumentos y argumentos predeterminados. Véanse también las
+          referencias de
+          funciones para func_num_args(), func_get_arg(), y func_get_args() para más información.
+          <br><br>
+          En PHP es posible llamar a funciones recursivas.
+        </p>
+        <br>
+        <b>Ejemplo #4 Funciones recursivas</b><br><br>
+        <code> ?php
+        function recursividad($a)
+        {
+            if ($a menos 20) {
+                echo "$a\n";
+                recursividad($a + 1);
+            }
+        }
+        ?></code>
+      </article>
+    </section>
+    <section class="main-section" id="referencias">
+      <header>Referencias</header>
+      <article>
+        <ul>
+          <li>
+            Toda la comentacion Oficial se encuentra aqui
+            <a href="https://www.php.net/docs.php" target="_blank">
+              PHP DOC</a>
+          </li>
+        </ul>
+      </article>
+    </section>
+  </main>
+</body>
+
+</html>
